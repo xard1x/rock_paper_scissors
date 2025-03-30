@@ -125,7 +125,7 @@ def stats(): #вывод статистики
 def play_music(): #проигрывание музыки
     volume = 1
     mixer.init()
-    mixer.music.load('от-5000к.wav')
+    mixer.music.load('music.wav')
     mixer.music.play(-1)
     mixer.music.set_volume(volume)
     but_music.hide()
