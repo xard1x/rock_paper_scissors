@@ -1,7 +1,8 @@
 from PyQt5.QtCore import Qt
 import random
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QLabel, QMessageBox
+from PyQt5.QtWidgets import *
 from pygame import mixer
+from PyQt5.QtGui import *
 
 app = QApplication([]) # создание окна
 win = QWidget()
@@ -28,14 +29,21 @@ vertical_layout3 = QHBoxLayout()
 vertical_layout4 = QHBoxLayout()
 
 select = QLabel('Выберите:') #создание надписи выберите и присваивание ее лайауту  
+select.setFont(QFont('Arial', 20)) 
 vertical_layout1.addWidget(select,alignment = Qt.AlignCenter)
 
 stone = QPushButton('Камень') #создание кнопок  и присваивание их лайауту  
+stone.setFont(QFont('Arial', 15))
 scissors = QPushButton('Ножницы') 
+scissors.setFont(QFont('Arial', 15))
 paper =  QPushButton('Бумага')
+paper.setFont(QFont('Arial', 15))
 counter_button = QPushButton('Статистика')
+counter_button.setFont(QFont('Arial', 17))
 but_music = QPushButton('Музыка')
+but_music.setFont(QFont('Arial', 17))
 but_pause = QPushButton('Стоп')
+but_pause.setFont(QFont('Arial', 17))
 vertical_layout2.addWidget(stone, alignment = Qt.AlignCenter)
 vertical_layout2.addWidget(scissors, alignment = Qt.AlignCenter)
 vertical_layout2.addWidget(paper, alignment = Qt.AlignCenter)
