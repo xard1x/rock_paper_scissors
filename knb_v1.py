@@ -1,7 +1,6 @@
 from PyQt5.QtCore import Qt
 import random
 from PyQt5.QtWidgets import *
-from pygame import mixer
 from PyQt5.QtGui import *
 
 app = QApplication([]) # создание окна
@@ -40,17 +39,10 @@ paper =  QPushButton('Бумага')
 paper.setFont(QFont('Arial', 15))
 counter_button = QPushButton('Статистика')
 counter_button.setFont(QFont('Arial', 17))
-but_music = QPushButton('Музыка')
-but_music.setFont(QFont('Arial', 17))
-but_pause = QPushButton('Стоп')
-but_pause.setFont(QFont('Arial', 17))
 vertical_layout2.addWidget(stone, alignment = Qt.AlignCenter)
 vertical_layout2.addWidget(scissors, alignment = Qt.AlignCenter)
 vertical_layout2.addWidget(paper, alignment = Qt.AlignCenter)
 vertical_layout4.addWidget(counter_button, alignment = Qt.AlignCenter)
-vertical_layout4.addWidget(but_music, alignment= Qt.AlignCenter)
-vertical_layout4.addWidget(but_pause, alignment= Qt.AlignCenter)
-but_pause.hide()
 
 main_layout.addLayout(vertical_layout1) #присваивании гориз лайаутов основному
 main_layout.addLayout(vertical_layout2)
@@ -130,20 +122,6 @@ def stats(): #вывод статистики
     result_2 = str(counter_defeat)
     result_3 = ' Поражения:'
     okno()
-def play_music(): #проигрывание музыки
-    volume = 1
-    mixer.init()
-    mixer.music.load('music.wav')
-    mixer.music.play(-1)
-    mixer.music.set_volume(volume)
-    but_music.hide()
-    but_pause.show()
-def pause(): #остановка музыки
-    but_music.show()
-    mixer.music.pause()
-    but_pause.hide()
-but_music.clicked.connect(play_music)
-but_pause.clicked.connect(pause)    
 paper.clicked.connect(click_paper) #заключение
 stone.clicked.connect(click_stone)
 scissors.clicked.connect(click_scissors)
